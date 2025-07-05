@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Telemetry Data</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    h2 { margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>Telemetry Data</h1>
+
+  <% telemetry.pointDetails.forEach(point => { %>
+    <h2>Point ID: <%= point.pointId %></h2>
+
+    <% if (point.preRecord) { %>
+      <h3>Pre Record</h3>
+      <table>
+        <tr><th>Time</th><th>Value</th><th>Properties</th></tr>
+        <tr>
+          <td><%= point.preRecord.time %></td>
+          <td><%= point.preRecord.value %></td>
+          <td><%= point.preRecord.properties %></td>
+        </tr>
+      </table>
+    <% } %>
+
+    <% if (point.postRecord) { %>
+      <h3>Post Record</h3>
+      <table>
+        <tr><th>Time</th><th>Value</th><th>Properties</th></tr>
+        <tr>
+          <td><%= point.postRecord.time %></td>
+          <td><%= point.postRecord.value %></td>
+          <td><%= point.postRecord.properties %></td>
+        </tr>
+      </table>
+    <% } %>
+
+    <h3>History Records</h3>
+    <table>
+      <tr><th>Time</th><th>Value</th><th>Properties</th></tr>
+      <% point.historyRecords.forEach(record => { %>
+        <tr>
+          <td><%= record.time %></td>
+          <td><%= record.value %></td>
+          <td><%= record.properties %></td>
+        </tr>
+      <% }) %>
+    </table>
+  <% }) %>
+
+</body>
+</html>

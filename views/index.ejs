@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niagara Cloud Points</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .point-card { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin-bottom: 20px; 
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tag { display: inline-block; margin-right: 10px; margin-bottom: 5px; }
+        .tag-id { font-weight: bold; color: #2c3e50; }
+        .tag-value { color: #3498db; }
+        h1 { color: #2c3e50; }
+        .facets { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Niagara Cloud Points</h1>
+    
+    <% if (points && points.length > 0) { %>
+        <% points.forEach(point => { %>
+            <div class="point-card">
+                <h2><%= point.name %></h2>
+                <p><strong>System GUID:</strong> <%= point.systemGuid %></p>
+                <p><strong>Cloud ID:</strong> <%= point.cloudId %></p>
+                
+                <h3>Tags</h3>
+                <div class="tags">
+                    <% point.tags.forEach(tag => { %>
+                        <div class="tag">
+                            <span class="tag-id"><%= tag.tagId %>:</span>
+                            <span class="tag-value"><%= tag.tagValue %></span>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <div class="facets">
+                    <h3>Facets</h3>
+                    <% point.facets.forEach(facet => { %>
+                        <p><strong><%= facet.key %>:</strong> <%= facet.value %> (<%= facet.type %>)</p>
+                    <% }); %>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No points found.</p>
+    <% } %>
+</body>
+</html>

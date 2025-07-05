@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barclays Dashboard</title>
+    <link rel="stylesheet" href="/css/custom-style.css">
+    <!-- <link rel="stylesheet" href="public/css/custom-style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.css">
+    <link
+      href="/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/fonts/Poppins/stylesheet.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="/css/custome-white.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+</head>
+<body id="page-top" class="page-overview sidebar-toggled">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+          <!-- Main Content -->
+          <div id="content">
+            <!-- Topbar -->
+            <nav class="navbar-expand navbar-light bg-white topbar mb-4 static-top shadow d-flex justify-content-between">
+              <a class="navbar-brand d-flex justify-content-between py-3" href="#">
+                  <img src="/Img/logo1.png" alt="Logo" class="d-inline-block align-top" style="max-height: 40px;">
+              </a>
+              <div class="d-flex align-items-center justify-content-between">
+                  <h2 class="me-2 fw-bold text-primari">WORKPLACE OS</h2>
+                  <h5 class="text-secondary pt-3">Smart building insights</h5>
+              </div>
+              <a class="navbar-brand d-flex justify-content-between py-3" href="#">
+                  <img src="/Img/space.png" alt="Logo" class="d-inline-block align-top" style="max-height: 40px;">
+              </a>
+          </nav>
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" style="border-bottom: none;">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center popup_box"> <!-- Center the content -->
+                      <i class="fas fa-exclamation"></i>
+                      <h1 id="modalMessage">Start Date ANd End Date Cant Not Be Same</h1>
+                      <div class="mt-1">
+                        <p id="modalMessage1">Please select proper dates.</p> <!-- Instruction message -->
+                      </div>
+                    </div>
+                    <div class="modal-footer" style="border-top: none;">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Content Row -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-5 small-boxes">
+                  <!-- Earnings (Monthly) Card Example -->
+                  <div class="row">
+                    <div class="col-xl-3 col-md-4 mb-4">
+                      <div class="card-co2 rounded shadow h-100 py-2">
+                        <div class="card-body VrtCenter">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div
+                                class="text-xs font-weight-bold text-kpi  text-uppercase mb-1"
+                              >
+                                Total Co2 Emission 
+                              </div>
+                              <div class="h5 mb-0 font-weight-bold text-white">
+                                2.54 ton
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <i class="fas fa-hand-holding-heart fa-2x text-white"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 mb-4">
+                      <div class="card-dom-water rounded shadow h-100 py-2">
+                        <div class="card-body VrtCenter">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-kpi text-uppercase mb-1">
+                                Total Domestic Water Used
+                              </div>
+                              <div class="h5 mb-0 font-weight-bold text-white">
+                                10 liters
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <i
+                                class="fas fa-tint fa-2x text-white" 
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 mb-4">
+                      <div class="card-flu-water rounded shadow h-100 py-2">
+                        <div class="card-body VrtCenter">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div
+                                class="text-xs font-weight-bold text-kpi text-uppercase mb-1"
+                              >
+                                Total Flushing Water Used
+                              </div>
+                              <div class="h5 mb-0 font-weight-bold text-white">
+                                20 liters
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <i
+                                class="fas fa-chart-line fa-2x text-white"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- Pending Requests Card Example -->
+                    <div class="col-xl-3 col-md-4 mb-4">
+                      <div class="card-power rounded shadow h-100 py-2">
+                        <div class="card-body VrtCenter">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div
+                                class="text-xs font-weight-bold text-kpi text-uppercase mb-1"
+                              >
+                                Total Power Consumption
+                              </div>
+                              <div class="h5 mb-0 font-weight-bold text-white">
+                                1350 Kwh
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <i
+                                class="fas fa-bolt fa-2x text-white"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row">
+                <!-- CO2 Emission Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">CO2 Emission in Ton / User</h6> 
+                    </div>
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <div id="chartdiv"></div>
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex">
+                            <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                              <label for="startDate" class="me-2">Start Date:</label>
+                              <input type="date" id="startDate" class="form-control form-control-sm" style="width: 150px;" title="">
+                            </div>
+                            <div class="form-group mb-2">
+                              <label for="endDate" class="me-2">End Date:</label>
+                              <input type="date" id="endDate" class="form-control form-control-sm" style="width: 150px;" title="">
+                            </div>
+                        </div>
+                          <div class="d-flex mt-2">
+                            <button id="sav_daily_btn" class="chart-button mx-1">Daily</button>
+                            <button id="sav_monthly_btn" class="chart-button mx-1">Monthly</button>
+                            <button id="sav_yearly_btn" class="chart-button mx-1">Yearly</button>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Water Consumption Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                          <h6 class="m-0 font-weight-bold text-primary">Water Consumption Per User</h6>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-area">
+                              <div id="chartdiv1"></div>
+                          </div>
+                          <div class="mb-3">
+                              <div class="d-flex">
+                                  <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                                      <label for="startDateWater" class="me-2">Start Date:</label>
+                                      <input type="date" id="startDateWater" class="form-control form-control-sm" style="width: 150px;">
+                                  </div>
+                                  <div class="form-group mb-2">
+                                      <label for="endDateWater" class="me-2">End Date:</label>
+                                      <input type="date" id="endDateWater" class="form-control form-control-sm" style="width: 150px;">
+                                  </div>
+                              </div>
+                              <div class="d-flex mt-2">
+                                  <button id="sav_daily_water" class="chart-button mx-1">Daily</button>
+                                  <button id="sav_monthly_water" class="chart-button mx-1">Monthly</button>
+                                  <button id="sav_yearly_water" class="chart-button mx-1">Yearly</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              
+                <!-- Power Consumption Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Power Consumption</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="chart-area">
+                        <div id="chartdiv2" class="d-inline-block ct-perfect-fourth"></div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="d-flex">
+                          <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                            <label for="startDatePower" class="me-2">Start Date:</label>
+                            <input type="date" id="startDatePower" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                          <div class="form-group mb-2">
+                            <label for="endDatePower" class="me-2">End Date:</label>
+                            <input type="date" id="endDatePower" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                        </div>
+                        <div class="d-flex mt-2">
+                          <button id="sav_daily_power" class=" power chart-button mx-1">Daily</button>
+                          <button id="sav_monthly_power" class="chart-button mx-1">Monthly</button>
+                          <button id="sav_yearly_power" class="power chart-button mx-1">Yearly</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <!-- Occupancy Efficiency Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Occupancy Efficiency (%)</h6>
+                      <div id="button-sec">
+                        <button
+                          id="floor_sav_btn"
+                          title="Show Floor Wise"
+                          class="chart-button"
+                        >
+                          <i class="fas fa-fw fa-chart-bar"></i>
+                        </button>
+                        <button
+                          id="build_sav_btn"
+                          title="Show Current Building"
+                          class="chart-button"
+                        >
+                          <i class="fas fa-fw fa-tachometer-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body ">
+                      <div class="chart-area sav_g_chart">
+                        <div id="chartdiv3"></div>
+                      </div>
+                      <div class="chart-area sav_b_chart">
+                        <div id="chartdiv9"></div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="d-flex">
+                          <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                            <label for="startDateOccupancy" class="me-2">Start Date:</label>
+                            <input type="date" id="startDateOccupancy" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                          <div class="form-group mb-2">
+                            <label for="endDateOccupancy" class="me-2">End Date:</label>
+                            <input type="date" id="endDateOccupancy" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                        </div>
+                        <div class="d-flex mt-2">
+                          <button id="sav_daily_occupancy" class="occupancy chart-button mx-1" >Daily</button>
+                          <button id="sav_monthly_occupancy" class="chart-button mx-1" >Monthly</button>
+                          <button id="sav_yearly_occupancy" class="occupancy chart-button mx-1">Yearly</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- Indoor Air Quality Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                          <h6 class="m-0 font-weight-bold text-primary">Indoor Air Quality</h6>
+                          <div id="button-sec">
+                              <button
+                                  id="aqiFloor1"
+                                  title="Show Floor Wise"
+                                  class="chart-button"
+                                  aria-label="Show Floor Wise"
+                              >
+                                  <i class="fas fa-fw fa-chart-bar"></i>
+                              </button>
+                              <button
+                                  id="aqiFloor2"
+                                  title="Show Current Building"
+                                  class="chart-button"
+                                  aria-label="Show Current Building"
+                              >
+                                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-area aqiAvg">
+                              <div id="chartdiv4" class="d-inline-block"></div>
+                          </div>
+                          <div class="chart-area aqiSeparate">
+                              <div class="d-flex justify-content-between">
+                                <div class="aqiChart border" id="completionRateChart"></div>
+                              <div class="aqiChart border" id="bounceRateChart"></div>
+                              </div>
+                          </div>
+                          <div class="mb-3">
+                              <div class="d-flex">
+                                  <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                                      <label for="startDateIAQ" class="me-2">Start Date:</label>
+                                      <input type="date" id="startDateIAQ" class="form-control form-control-sm" style="width: 150px;">
+                                  </div>
+                                  <div class="form-group mb-2">
+                                      <label for="endDateIAQ" class="me-2">End Date:</label>
+                                      <input type="date" id="endDateIAQ" class="form-control form-control-sm" style="width: 150px;">
+                                  </div>
+                              </div>
+                              <div class="d-flex mt-2">
+                                  <button id="sav_daily_iaq" class="chart-button mx-1">Daily</button>
+                                  <button id="sav_monthly_iaq" class="chart-button mx-1">Monthly</button>
+                                  <button id="sav_yearly_iaq" class="chart-button mx-1">Yearly</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              
+                <!-- Energy Performance Index Chart -->
+                <div class="col-xl-4 col-lg-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Energy Performance Index (EPI)</h6>
+                      <div id="button-sec">
+                        <button
+                            id="epiFloor1"
+                            title="Show Floor Wise"
+                            class="chart-button"
+                            aria-label="Show Floor Wise"
+                        >
+                            <i class="fas fa-fw fa-chart-bar"></i>
+                        </button>
+                        <button
+                            id="epiFloor2"
+                            title="Show Current Building"
+                            class="chart-button"
+                            aria-label="Show Current Building"
+                        >
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="chart-area epiDonut">
+                        <div id="chartdiv5" class="d-inline-block"></div>
+                      </div>
+                      <div class="chart-area epiBar">
+                          <div class="epiChart" id="epiBarChart"></div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="d-flex">
+                          <div class="form-group mb-2 me-2" style="margin-right: 1rem;">
+                            <label for="startDateEPI" class="me-2">Start Date:</label>
+                            <input type="date" id="startDateEPI" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                          <div class="form-group mb-2">
+                            <label for="endDateEPI" class="me-2">End Date:</label>
+                            <input type="date" id="endDateEPI" class="form-control form-control-sm" style="width: 150px;">
+                          </div>
+                        </div>
+                        <div class="d-flex mt-2">
+                          <button id="sav_daily_epi" class="chart-button mx-1" >Daily</button>
+                          <button id="sav_monthly_epi" class="chart-button mx-1">Monthly</button>
+                          <button id="sav_yearly_epi" class="chart-button mx-1">Yearly</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- /.container-fluid -->
+          </div>
+          <!-- End of Main Content -->
+  
+          <!-- Footer -->
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2022</span>
+              </div>
+            </div>
+          </footer>
+          <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+      </div>
+    
+      <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/plugins/rangeSelector.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/lang/es_ES.js"></script>
+      <script src="https://cdn.amcharts.com/lib/4/plugins/rangeSelector.js"></script>
+      <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+      <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+      <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+      <script src="https://www.amcharts.com/lib/3/themes/black.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.38.0/apexcharts.min.js"></script>
+      <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+      <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <!-- CO2 Emission Donut Chart -->
+
+<!-- <script>
+document.addEventListener('DOMContentLoaded', function () {
+async function pieChart() {
+
+    // Append a style block to customize the text appearance in the chart
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #chartdiv .apexcharts-text {
+            fill: #000000; /* Change this to your desired color */
+            font-weight: bold; /* Ensure bold text */
+        }
+    `;
+    style.id = 'chartdiv-styles';
+    document.head.appendChild(style);
+
+    // 🔁 Replace OBIX fetch with preloaded chartData
+     const chartData = await fetch('/read-points').then(res => res.json());
+    console.log('Chart data loaded:', chartData);
+
+    let scopeValues = [];
+
+const expectedIndexes = [0, 1, 2]; // Scope1, Scope2, Scope3
+expectedIndexes.forEach((index, i) => {
+    const point = chartData[index];
+
+    if (!point || point.value === undefined) {
+        console.warn(`Missing data at index ${index} (Scope ${i + 1}). Using 0.`);
+        scopeValues.push(0);
+    } else {
+        const value = parseFloat(point.value);
+        if (!isNaN(value)) {
+            scopeValues.push(value);
+        } else {
+            console.warn(`Invalid value at index ${index} (Scope ${i + 1}):`, point.value);
+            scopeValues.push(0);
+        }
+    }
+});
+
+    console.log("Final Scope Values Array:", scopeValues);
+
+    const flattenedData = scopeValues.flat();
+   
+
+    scopeValues = scopeValues.map(value => Math.min(value, 100));
+    console.log("Scope Values: ", scopeValues);
+
+    const totalValue = scopeValues.reduce((sum, value) => sum + value, 0);
+console.log("total value " + totalValue);
+
+// 🔧 Fix NaN percentages caused by 0 / 0
+let percentages = scopeValues.map(value => {
+  let pct = totalValue > 0 ? (value / totalValue) * 100 : 0;
+  return pct === 0 ? 0.00001 : pct; // trick to avoid full circle on 0%
+});
+
+
+console.log("Before Chart Rendering (percentages):", percentages);
+
+
+    var options = {
+        series: percentages,
+        chart: {
+            height: '100%',
+            type: 'radialBar',
+            events: {
+                dataPointSelection: function (event, chartContext, config) {
+                    updateTotal(config.dataPointIndex);
+                },
+                mouseLeave: function () {
+                    emissionChart.updateOptions({
+                        plotOptions: {
+                            radialBar: {
+                                dataLabels: {
+                                    name: { formatter: () => "Total" },
+                                    value: { formatter: () => totalValue.toFixed(4) }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        },
+        plotOptions: {
+            radialBar: {
+                offsetY: 10,
+                offsetX: -10,
+                startAngle: -180,
+                endAngle: 90,
+                track: {
+                    background: '#f5f5f5',
+                    strokeWidth: '100%',
+                    margin: 4,
+                },
+                hollow: {
+                    margin: 0,
+                    size: '50%',
+                    background: 'transparent',
+                },
+                dataLabels: {
+                    show: true,
+                    name: {
+                        show: true,
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        color: '#000000',
+                        formatter: function () {
+                            return "Total";
+                        }
+                    },
+                    value: {
+                        show: true,
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        color: '#000000',
+                        formatter: function () {
+                            return totalValue.toFixed(4);
+                        }
+                    },
+                    total: {
+                        show: true,
+                        label: 'Total',
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        color: '#000000',
+                        formatter: function () {
+                            return totalValue.toFixed(4);
+                        }
+                    }
+                }
+            }
+        },
+        colors: ["#FF7D03", "#A4CE95", "#FFD93D"],
+        fill: { opacity: [0.85, 0.85, 0.85] },
+        labels: ["Scope 1", "Scope 2", "Scope 3"],
+        legend: {
+            show: true,
+            floating: true,
+            fontSize: '16px',
+            position: 'right',
+            offsetX: 10,
+            offsetY: -20,
+            labels: { useSeriesColors: true },
+            markers: { size: 0 },
+            onItemClick: { toggleDataSeries: false },
+            itemMargin: { vertical: 1 },
+        },
+        tooltip: {
+            enabled: true,
+            custom: function ({ series, seriesIndex, w }) {
+                const name = w.globals.labels[seriesIndex];
+                const value = series[seriesIndex].toFixed(2);
+                const value1 = scopeValues[seriesIndex].toFixed(2);
+
+                setTimeout(() => {
+                    emissionChart.updateOptions({
+                        plotOptions: {
+                            radialBar: {
+                                dataLabels: {
+                                    name: { formatter: () => name },
+                                    value: { formatter: () => value1 }
+                                }
+                            }
+                        }
+                    });
+                }, 0);
+
+                return `<div style="padding:5px; background:#fff; border-radius:5px;">
+                            <strong>${name}:</strong> ${value1}
+                        </div>`;
+            }
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: { legend: { show: true } }
+        }]
+    };
+
+    var emissionChart = new ApexCharts(document.querySelector("#chartdiv"), options);
+    emissionChart.render();
+
+    function updateTotal(index) {
+        let newValue = scopeValues[index];
+        emissionChart.updateOptions({
+            plotOptions: {
+                radialBar: {
+                    dataLabels: {
+                        value: {
+                            formatter: function () {
+                                return newValue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+pieChart();
+
+async function lineChart4() {
+  const response = await fetch('/line-chart-data');
+  const chartData = await response.json();
+  console.log("Line chart data:", chartData);
+
+  // Separate time and value arrays
+  const times = chartData.map(item => item.time);
+  const values = chartData.map(item => item.value);
+
+  am4core.ready(function () {
+    am4core.useTheme(am4themes_animated);
+
+    powerChart = am4core.create("chartdiv2", am4charts.XYChart);
+    powerChart.data = chartData;
+
+    let categoryAxis = powerChart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "time";
+    categoryAxis.renderer.labels.template.fill = am4core.color("#000000");
+    categoryAxis.renderer.labels.template.rotation = 315;
+    categoryAxis.renderer.minGridDistance = 1;
+    categoryAxis.renderer.labels.template.fontSize = 10;
+
+    let valueAxis = powerChart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.labels.template.fill = am4core.color("#000000");
+
+    let lineSeries = powerChart.series.push(new am4charts.LineSeries());
+    lineSeries.dataFields.valueY = "value";
+    lineSeries.dataFields.categoryX = "time";
+    lineSeries.strokeWidth = 2;
+    lineSeries.stroke = am4core.color("#FC4100");
+
+    lineSeries.tooltipText = "Power: [bold]{valueY}[/]";
+    lineSeries.tooltip.getFillFromObject = false;
+    lineSeries.tooltip.background.fill = am4core.color("#FC4100");
+    lineSeries.tooltip.label.fill = am4core.color("#ffffff");
+
+    powerChart.cursor = new am4charts.XYCursor();
+    powerChart.cursor.behavior = "zoomXY";
+    powerChart.logo.disabled = true;
+  });
+}
+
+lineChart4();
+
+async function donutChart() {
+  try {
+    const response = await fetch('/occupancy-data');
+    const data = await response.json();
+    const outValue = parseFloat(data.value);
+
+    console.log("Occupancy Value:", outValue);
+
+    const options = {
+      series: [outValue],
+      chart: {
+        height: "100%",
+        width: "100%",
+        type: 'radialBar',
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            margin: 15,
+            size: '85%',
+          },
+          dataLabels: {
+            name: {
+              show: true,
+              color: '#000',
+            },
+            value: {
+              show: true,
+              color: '#000',
+              offsetY: 50,
+              fontSize: '50px',
+            },
+          },
+          track: {
+            background: '#494949',
+            strokeWidth: '10%',
+            margin: 0,
+            dropShadow: {
+              enabled: true,
+              top: -3,
+              left: 0,
+              blur: 4,
+              opacity: 0.35,
+            },
+          },
+          offsetY: 0,
+        },
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: 'vertical',
+          gradientToColors: ['#e33b29', '#ff00e0', '#0000ff'],
+          stops: [0, 2, 70, 100],
+          colorStops: [
+            { offset: 0, color: '#e33b29', opacity: 1 },
+            { offset: 2, color: '#e33b29', opacity: 1 },
+            { offset: 70, color: '#ff00e0', opacity: 1 },
+            { offset: 100, color: '#0000ff', opacity: 1 }
+          ]
+        }
+      },
+      stroke: { lineCap: 'round' },
+      labels: ["Occupancy Efficiency"],
+    };
+
+    const occupancyChart = new ApexCharts(document.querySelector("#chartdiv3"), options);
+    occupancyChart.render();
+  } catch (err) {
+    console.error("Error rendering donutChart:", err);
+  }
+}
+
+donutChart();
+
+async function createPieChart() {
+  try {
+    const response = await fetch('/aqi-data');
+    const { value: outValueRaw } = await response.json();
+    const outValue = parseFloat(outValueRaw).toFixed(2);
+
+    const maxAQI = 500;
+    const normalizedValue = Math.min((outValue / maxAQI) * 100, 100).toFixed(2);
+    const formattedValue = parseFloat(normalizedValue);
+    const options = {
+      series: [formattedValue],
+      chart: {
+        height: "100%",
+        type: 'radialBar',
+        events: {
+          rendered: function (chartContext, config) {
+            const totalValue = config.globals.seriesTotals.reduce((a, b) => a + b, 0);
+            const label = document.querySelector("#chartdiv4 .apexcharts-text.apexcharts-datalabel-label");
+            if (label) {
+              label.style.fill = totalValue > 50 ? 'green' : 'red';
+            }
+          }
+        },
+        offsetY: -20
+      },
+      plotOptions: {
+        radialBar: {
+          offsetY: 20,
+          startAngle: 0,
+          endAngle: 360,
+          hollow: {
+            margin: 5,
+            size: '65%',
+            background: 'transparent',
+          },
+          dataLabels: {
+            name: { show: true },
+            value: { show: true },
+            total: {
+              show: true,
+              label: 'AQI',
+              fontSize: '30px',
+              fontWeight: 'bold',
+              color: '#000000',
+              formatter: function (w) {
+                const totalValue = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                return outValue + (outValue > 50 ? " Good" : " Bad");
+              }
+            }
+          },
+          track: {
+            background: '#2F5AD0'
+          }
+        }
+      },
+      colors: ["#FF6600"],
+      labels: ['AQI'],
+      legend: {
+        show: true,
+        floating: true,
+        fontSize: '16px',
+        position: 'top',
+        horizontalAlign: 'center',
+        offsetY: 20,
+        markers: { size: 8 },
+        formatter: function (seriesName, opts) {
+          return seriesName;
+        },
+        itemMargin: { vertical: 3 }
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          legend: { show: false }
+        }
+      }]
+    };
+
+    aqiCharts = new ApexCharts(document.querySelector("#chartdiv4"), options);
+    aqiCharts.render();
+
+  } catch (err) {
+    console.error("❌ createPieChart() error:", err);
+  }
+}
+
+createPieChart();
+
+  async function renderEPIDonut() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      #chartdiv5 .apexcharts-text {
+        fill: #000000;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+
+   const res = await fetch('/epi-donut-data');
+const { labels, percentValues, unitValues, totalEPI } = await res.json();
+
+const options = {
+  series: percentValues, // e.g., [31.97, 32.53, 114.96]
+  chart: {
+    type: 'donut',
+    height: "100%",
+    animations: { enabled: false }
+  },
+  labels: labels, // ['HVAC', 'UPS', 'RP & LTG']
+  dataLabels: {
+    enabled: true,
+    formatter: function (val, opts) {
+      // Show the raw percentage from API (not recalculated)
+      const index = opts.seriesIndex;
+      return `${percentValues[index]}%`;
+    },
+    style: {
+      fontSize: '16px',
+      fontWeight: 'bold',
+      colors: ['#000']
+    }
+  },
+  tooltip: {
+    y: {
+      formatter: function (_, { seriesIndex }) {
+        return `${percentValues[seriesIndex]}% (${unitValues[seriesIndex]} units)`;
+      }
+    }
+  },
+  colors: ['#FFB200', '#667BC6', '#D1E9F6'],
+  legend: {
+    show: true,
+    position: 'top',
+    horizontalAlign: 'center',
+    labels: {
+      colors: ['#000000', '#000000', '#000000']
+    },
+    offsetY: -10
+  },
+  plotOptions: {
+    pie: {
+      donut: {
+        size: '50%',
+        labels: {
+          show: true,
+          name: {
+            show: true,
+            fontSize: '30px',
+            fontWeight: 'bold',
+            color: '#000000',
+            formatter: () => 'EPI'
+          },
+          value: {
+            show: true,
+            fontSize: '30px',
+            fontWeight: 'bold',
+            color: '#000000',
+            formatter: () => totalEPI.toFixed(2) + ' units'
+          },
+          total: {
+            show: false // Disable default total %
+          }
+        }
+      }
+    }
+  },
+  stroke: {
+    show: false
+  }
+};
+
+const chart = new ApexCharts(document.querySelector("#chartdiv5"), options);
+chart.render();
+
+  }
+
+  renderEPIDonut();
+
+  let chart;
+  async function pieChart1() {
+  am4core.ready(async function () {
+    am4core.useTheme(am4themes_animated);
+
+    if (chart) {
+      chart.dispose();
+    }
+
+    chart = am4core.create("chartdiv1", am4charts.PieChart);
+
+    // Fetch live water usage data
+    const res = await fetch('/water-usage-data');
+    const waterData = await res.json();
+
+    chart.data = waterData; // Example: [{country: 'Domestic', litres: 120}, ...]
+
+    const pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "litres";
+    pieSeries.dataFields.category = "country";
+
+    pieSeries.slices.template.stroke = am4core.color("transparent");
+    pieSeries.slices.template.strokeOpacity = 0;
+
+    pieSeries.colors.list = [
+      am4core.color("#C65BCF"),
+      am4core.color("#39A7FF")
+    ];
+
+    pieSeries.ticks.template.disabled = true;
+    pieSeries.alignLabels = false;
+    pieSeries.labels.template.text = "{value.percent.formatNumber('#.0')}%";
+    pieSeries.labels.template.radius = am4core.percent(-40);
+    pieSeries.labels.template.fill = am4core.color("#000000");
+
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+
+    chart.hiddenState.properties.radius = am4core.percent(-40);
+
+    chart.legend = new am4charts.Legend();
+    chart.legend.position = "top";
+    chart.legend.labels.template.maxWidth = 100;
+    chart.legend.labels.template.text = "{country}: {litres} L";
+    chart.legend.labels.template.interactionsEnabled = false;
+    chart.legend.labels.template.fill = am4core.color("#000000");
+    chart.legend.layout = "horizontal";
+    chart.legend.itemContainers.template.paddingBottom = 10;
+    chart.legend.itemContainers.template.align = "center";
+    chart.legend.itemContainers.template.valign = "middle";
+    chart.legend.contentAlign = "center";
+
+    chart.logo.disabled = true;
+    clearDateInputsWater();
+  });
+}
+
+pieChart1();
+
+});
+</script> -->
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  // Load all dashboard data at once
+  const dashboardData = await fetch('/dashboard-data').then(res => res.json());
+  console.log('Dashboard data loaded:', dashboardData);
+
+  // Extract data from the combined response
+  const { readPoints, aqi, occupancy, water, epi } = dashboardData;
+
+  // ==================== PIE CHART (Scope 1-3) ====================
+  async function pieChart() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      #chartdiv .apexcharts-text {
+        fill: #000000;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const scopeValues = readPoints.map(value => Math.min(value, 100));
+    const totalValue = scopeValues.reduce((sum, value) => sum + value, 0);
+    const percentages = scopeValues.map(value => totalValue > 0 ? (value / totalValue) * 100 : 0.00001);
+
+    var options = {
+      series: percentages,
+      chart: {
+        height: '100%',
+        type: 'radialBar',
+        events: {
+          dataPointSelection: function (event, chartContext, config) {
+            updateTotal(config.dataPointIndex);
+          },
+          mouseLeave: function () {
+            emissionChart.updateOptions({
+              plotOptions: {
+                radialBar: {
+                  dataLabels: {
+                    name: { formatter: () => "Total" },
+                    value: { formatter: () => totalValue.toFixed(4) }
+                  }
+                }
+              }
+            });
+          }
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          offsetY: 10,
+          offsetX: -10,
+          startAngle: -180,
+          endAngle: 90,
+          track: {
+            background: '#f5f5f5',
+            strokeWidth: '100%',
+            margin: 4,
+          },
+          hollow: {
+            margin: 0,
+            size: '50%',
+            background: 'transparent',
+          },
+          dataLabels: {
+            show: true,
+            name: {
+              show: true,
+              fontSize: '30px',
+              fontWeight: 'bold',
+              color: '#000000',
+              formatter: function () {
+                return "Total";
+              }
+            },
+            value: {
+              show: true,
+              fontSize: '30px',
+              fontWeight: 'bold',
+              color: '#000000',
+              formatter: function () {
+                return totalValue.toFixed(4);
+              }
+            }
+          }
+        }
+      },
+      colors: ["#FF7D03", "#A4CE95", "#FFD93D"],
+      fill: { opacity: [0.85, 0.85, 0.85] },
+      labels: ["Scope 1", "Scope 2", "Scope 3"],
+      legend: {
+        show: true,
+        floating: true,
+        fontSize: '16px',
+        position: 'right',
+        offsetX: 10,
+        offsetY: -20,
+        labels: { useSeriesColors: true },
+        markers: { size: 0 },
+        onItemClick: { toggleDataSeries: false },
+        itemMargin: { vertical: 1 },
+      }
+    };
+
+    var emissionChart = new ApexCharts(document.querySelector("#chartdiv"), options);
+    emissionChart.render();
+
+    function updateTotal(index) {
+      emissionChart.updateOptions({
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              value: {
+                formatter: function () {
+                  return scopeValues[index];
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // ==================== LINE CHART ====================
+  async function lineChart4() {
+    // This would need to be updated if you want to keep historical data
+    // Currently using static data since your server doesn't show this endpoint
+    am4core.ready(function () {
+      am4core.useTheme(am4themes_animated);
+      powerChart = am4core.create("chartdiv2", am4charts.XYChart);
+      powerChart.data = [{ time: "12:00", value: 100 }, { time: "13:00", value: 150 }];
+      
+      let categoryAxis = powerChart.xAxes.push(new am4charts.CategoryAxis());
+      categoryAxis.dataFields.category = "time";
+      categoryAxis.renderer.labels.template.fill = am4core.color("#000000");
+      categoryAxis.renderer.labels.template.rotation = 315;
+      categoryAxis.renderer.minGridDistance = 1;
+      categoryAxis.renderer.labels.template.fontSize = 10;
+
+      let valueAxis = powerChart.yAxes.push(new am4charts.ValueAxis());
+      valueAxis.renderer.labels.template.fill = am4core.color("#000000");
+
+      let lineSeries = powerChart.series.push(new am4charts.LineSeries());
+      lineSeries.dataFields.valueY = "value";
+      lineSeries.dataFields.categoryX = "time";
+      lineSeries.strokeWidth = 2;
+      lineSeries.stroke = am4core.color("#FC4100");
+
+      powerChart.cursor = new am4charts.XYCursor();
+      powerChart.cursor.behavior = "zoomXY";
+      powerChart.logo.disabled = true;
+    });
+  }
+
+  // ==================== OCCUPANCY CHART ====================
+  async function donutChart() {
+    const outValue = occupancy.value;
+    const options = {
+      series: [outValue],
+      chart: {
+        height: "100%",
+        width: "100%",
+        type: 'radialBar',
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            margin: 15,
+            size: '85%',
+          },
+          dataLabels: {
+            name: {
+              show: true,
+              color: '#000',
+            },
+            value: {
+              show: true,
+              color: '#000',
+              offsetY: 50,
+              fontSize: '50px',
+            },
+          },
+          track: {
+            background: '#494949',
+            strokeWidth: '10%',
+            margin: 0,
+            dropShadow: {
+              enabled: true,
+              top: -3,
+              left: 0,
+              blur: 4,
+              opacity: 0.35,
+            },
+          },
+        },
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: 'vertical',
+          gradientToColors: ['#e33b29', '#ff00e0', '#0000ff'],
+          stops: [0, 2, 70, 100]
+        }
+      },
+      stroke: { lineCap: 'round' },
+      labels: ["Occupancy Efficiency"],
+    };
+
+    const occupancyChart = new ApexCharts(document.querySelector("#chartdiv3"), options);
+    occupancyChart.render();
+  }
+
+  // ==================== AQI CHART ====================
+  async function createPieChart() {
+    const outValue = parseFloat(aqi.value).toFixed(2);
+    const maxAQI = 500;
+    const normalizedValue = Math.min((outValue / maxAQI) * 100, 100).toFixed(2);
+    
+    const options = {
+      series: [normalizedValue],
+      chart: {
+        height: "100%",
+        type: 'radialBar',
+        offsetY: -20
+      },
+      plotOptions: {
+        radialBar: {
+          offsetY: 20,
+          startAngle: 0,
+          endAngle: 360,
+          hollow: {
+            margin: 5,
+            size: '65%',
+            background: 'transparent',
+          },
+          dataLabels: {
+            name: { show: true },
+            value: { show: true },
+            total: {
+              show: true,
+              label: 'AQI',
+              fontSize: '30px',
+              fontWeight: 'bold',
+              color: '#000000',
+              formatter: function () {
+                return outValue + (outValue > 50 ? " Good" : " Bad");
+              }
+            }
+          },
+          track: {
+            background: '#2F5AD0'
+          }
+        }
+      },
+      colors: ["#FF6600"],
+      labels: ['AQI']
+    };
+
+    const aqiCharts = new ApexCharts(document.querySelector("#chartdiv4"), options);
+    aqiCharts.render();
+  }
+
+  // ==================== EPI CHART ====================
+  async function renderEPIDonut() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      #chartdiv5 .apexcharts-text {
+        fill: #000000;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const options = {
+      series: epi.percentValues,
+      chart: {
+        type: 'donut',
+        height: "100%",
+        animations: { enabled: false }
+      },
+      labels: epi.labels,
+      dataLabels: {
+        enabled: true,
+        formatter: function (val, opts) {
+          return `${epi.percentValues[opts.seriesIndex]}%`;
+        },
+        style: {
+          fontSize: '16px',
+          fontWeight: 'bold',
+          colors: ['#000']
+        }
+      },
+      colors: ['#FFB200', '#667BC6', '#D1E9F6'],
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '50%',
+            labels: {
+              show: true,
+              name: {
+                show: true,
+                fontSize: '30px',
+                fontWeight: 'bold',
+                color: '#000000',
+                formatter: () => 'EPI'
+              },
+              value: {
+                show: true,
+                fontSize: '30px',
+                fontWeight: 'bold',
+                color: '#000000',
+                formatter: () => epi.totalEPI.toFixed(2) + ' units'
+              }
+            }
+          }
+        }
+      }
+    };
+
+    const chart = new ApexCharts(document.querySelector("#chartdiv5"), options);
+    chart.render();
+  }
+
+  // ==================== WATER USAGE CHART ====================
+  async function pieChart1() {
+    am4core.ready(function () {
+      am4core.useTheme(am4themes_animated);
+      const chart = am4core.create("chartdiv1", am4charts.PieChart);
+      chart.data = water;
+
+      const pieSeries = chart.series.push(new am4charts.PieSeries());
+      pieSeries.dataFields.value = "litres";
+      pieSeries.dataFields.category = "country";
+      pieSeries.slices.template.stroke = am4core.color("transparent");
+      pieSeries.colors.list = [am4core.color("#C65BCF"), am4core.color("#39A7FF")];
+      pieSeries.labels.template.text = "{value.percent.formatNumber('#.0')}%";
+      pieSeries.labels.template.radius = am4core.percent(-40);
+      pieSeries.labels.template.fill = am4core.color("#000000");
+
+      chart.legend = new am4charts.Legend();
+      chart.legend.position = "top";
+      chart.legend.labels.template.text = "{country}: {litres} L";
+      chart.legend.labels.template.fill = am4core.color("#000000");
+      chart.logo.disabled = true;
+    });
+  }
+
+  // Initialize all charts
+  pieChart();
+  lineChart4();
+  donutChart();
+  createPieChart();
+  renderEPIDonut();
+  pieChart1();
+
+  // Auto-refresh every 10 seconds
+  setInterval(async () => {
+    const newData = await fetch('/dashboard-data').then(res => res.json());
+    console.log('Refreshed dashboard data:', newData);
+    // Here you would update your charts with newData
+  }, 10000);
+});
+</script>
+    
+</body>
+</html>
