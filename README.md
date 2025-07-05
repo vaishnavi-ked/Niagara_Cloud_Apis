@@ -51,6 +51,10 @@ This is a Node.js/Express dashboard for visualizing smart building data from the
 
 ## Project Structure
 
+- `server.js` - Main Express server and API logic
+- `views/` - EJS templates for dashboard and other pages
+- `public/` - Static assets (CSS, JS, images)
+- `dashboard.env` - Environment variables (API credentials)
 
 ## Notes
 
