@@ -44,6 +44,7 @@ const config = {
   powerCloudId: "93572754-b3fc-4788-880a-4ddd9503c044"
 };
 
+
 // Token cache
 let tokenInfo = { token: null, expiresAt: 0 };
 
